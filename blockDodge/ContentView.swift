@@ -8,6 +8,7 @@
 
 import SwiftUI
 import RealityKit
+import ARKit
 
 struct ContentView : View {
     var body: some View {
@@ -29,6 +30,13 @@ struct ARViewContainer: UIViewRepresentable {
         
         return arView
         
+    }
+    
+    func createBlockPosition(position: SCNVector3){
+        var block = SCNBox(width: 5.0, height: 5.0, length: 10.0, chamferRadius: 0.1)
+        var boxNode = SCNNode(geometry: block)
+        boxNode.position(position)
+        ARView.scene.el
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
